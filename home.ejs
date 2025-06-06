@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO App</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="task">
+        <h1 class="heading">Your To-Do List</h1>
+        <form method="get" action="/new" class="addtask">
+            <button class=btn-addnew>Add new task</button>
+        </form>
+        <hr>
+        <%for(data of todo){%>
+            <div class="container">
+                <h2>TO DO: <%= data.title%></h2>
+                <div class="container-info">
+                    <p style="display: flex; flex-direction: column; white-space: pre-wrap;">Tasks:</br> <%= data.content.length > 100 ? data.content.substring(0, 100) + "..." : data.content%></p>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+                <form method="get" action="/home/<%=data.id%>">
+                    <button>View in detail</button>
+                </form>
+                <form method="post" action="/delete/<%=data.id%>?_method=DELETE">
+                    <button class="btn-delete">Delete</button>
+                </form>
+            </div>
+
+            <hr>
+        <%}%>
+
+    </div>
+</body>
+
+</html>

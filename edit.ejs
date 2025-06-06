@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+</head>
+
+<body>
+    <form method="POST" action="/home/<%= todo.id %>?_method=PATCH">
+        <h3>
+            <label for="title">Add Title: </label>
+            <textarea name="title" id="title"><%=todo.title%></textarea>
+        </h3>
+        <h3><label for="content">Add Content: </label></h3>
+        <textarea name="content" id="content" placeholder="Write content" rows="30" cols="60" style="white-space: pre-wrap;"><%=todo.content%></textarea><br>
+        <button>Done</button>
+    </form>
+</body>
+
+</html>
